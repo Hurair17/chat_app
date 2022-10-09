@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+
+import '../intro_screen/intro_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,15 +21,15 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     animationController = AnimationController(
       vsync: this,
-      lowerBound: 0,
-      upperBound: 60,
+      lowerBound: 10,
+      upperBound: 90,
       animationBehavior: AnimationBehavior.normal,
-      duration: const Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 1000),
     );
     animationController.forward();
     slideAnimation = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 1000),
     );
     offsetAnimation = Tween<Offset>(
       begin: Offset.zero,
@@ -48,9 +52,7 @@ class _SplashScreenState extends State<SplashScreen>
       }
     });
     Future.delayed(const Duration(seconds: 4), () {
-      // Get.to(
-      //   IntroductionScreen();
-      // );
+      Get.to(IntroductionScreen());
     });
     super.initState();
   }
@@ -59,6 +61,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.all(40),
         color: Theme.of(context).primaryColor,
         child: Center(
           child: Row(children: [
@@ -79,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
               child: Text(
                 'Chat App',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 40.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
