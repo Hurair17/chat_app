@@ -1,3 +1,5 @@
+import 'package:chat_app/core/controllers/login_controller.dart';
+import 'package:chat_app/ui/screens/user_info/user_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -52,7 +54,12 @@ class _SplashScreenState extends State<SplashScreen>
       }
     });
     Future.delayed(const Duration(seconds: 4), () {
-      Get.to(IntroductionScreen());
+      LoginController controller = Get.find<LoginController>();
+      if (controller.auth.currentUser != null) {
+        Get.offAll(const UserInfoScreen());
+      } else {
+        Get.to(IntroductionScreen());
+      }
     });
     super.initState();
   }
@@ -61,7 +68,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(40),
+        padding: const EdgeInsets.all(40),
         color: Theme.of(context).primaryColor,
         child: Center(
           child: Row(children: [

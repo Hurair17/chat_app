@@ -4,15 +4,15 @@ ThemeData lightThemeData(BuildContext context) {
   return ThemeData(
     primaryColor: kPrimaryColor,
     buttonColor: kPrimaryColor,
-    colorScheme:
-        ColorScheme.light(primary: kPrimaryColor, secondary: kPrimaryColor),
+    colorScheme: const ColorScheme.light(
+        primary: kPrimaryColor, secondary: kPrimaryColor),
     indicatorColor: Colors.white,
     splashColor: Colors.white24,
     splashFactory: InkRipple.splashFactory,
     accentColor: kPrimaryColor,
     fontFamily: "WorkSans",
     shadowColor: Theme.of(context).disabledColor,
-    dividerColor: Color(0xff707070),
+    dividerColor: const Color(0xff707070),
     canvasColor: Colors.white,
     backgroundColor: const Color(0xFFFFFFFF),
     scaffoldBackgroundColor: const Color(0xFFF5F5F5),
@@ -28,14 +28,14 @@ ThemeData darkThemeData(BuildContext context) {
   return ThemeData(
     scaffoldBackgroundColor: Colors.grey.shade900,
     primaryColor: kPrimaryColor,
-    colorScheme: ColorScheme.dark(),
+    colorScheme: const ColorScheme.dark(),
     indicatorColor: Colors.white,
     splashColor: Colors.white24,
     splashFactory: InkRipple.splashFactory,
     accentColor: kPrimaryColor,
     fontFamily: "WorkSans",
     shadowColor: Theme.of(context).disabledColor,
-    dividerColor: Color(0xff707070),
+    dividerColor: const Color(0xff707070),
     canvasColor: Colors.white,
     backgroundColor: Colors.black,
     errorColor: kErrorColor,
@@ -47,7 +47,7 @@ ThemeData darkThemeData(BuildContext context) {
 }
 
 TextTheme getTextTheme() {
-  return TextTheme(
+  return const TextTheme(
     bodyText1: TextStyle(fontFamily: "WorkSans"),
     bodyText2: TextStyle(fontFamily: "WorkSans"),
     headline1: TextStyle(fontFamily: "WorkSans"),
@@ -73,4 +73,4 @@ const kErrorColor = Color(0xFFF03738);
 
 const kDefaultPadding = 20.0;
 
-final appBarTheme = AppBarTheme(centerTitle: false, elevation: 0);
+const AppBarTheme appBarTheme = AppBarTheme(centerTitle: false, elevation: 0);

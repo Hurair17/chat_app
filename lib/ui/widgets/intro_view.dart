@@ -1,7 +1,5 @@
 import 'package:chat_app/core/models/intro_models.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IntroView extends StatelessWidget {
@@ -15,7 +13,7 @@ class IntroView extends StatelessWidget {
         Expanded(
             flex: 8,
             child: Center(
-              child: Container(
+              child: SizedBox(
                 width: 1.sw,
                 child: AspectRatio(
                   aspectRatio: 1,
@@ -27,17 +25,15 @@ class IntroView extends StatelessWidget {
               ),
             )),
         Expanded(
-            child: Container(
-          child: Text(
-            introModel.titleText,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 24.sp,
-              fontWeight: FontWeight.bold,
-            ),
+            child: Text(
+          introModel.titleText,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 24.sp,
+            fontWeight: FontWeight.bold,
           ),
         )),
-        Expanded(
+        const Expanded(
           flex: 1,
           child: SizedBox(),
         ),

@@ -1,3 +1,5 @@
+import 'package:chat_app/core/binding/initial_binding.dart';
+import 'package:chat_app/ui/screens/dashboard/dashboard.dart';
 import 'package:chat_app/ui/screens/splash_screen/splash_screen.dart';
 import 'package:chat_app/ui/widgets/appTheme.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,9 +36,18 @@ class MyApp extends StatelessWidget {
           theme: lightThemeData(context),
           themeMode: ThemeMode.system,
           debugShowCheckedModeBanner: false,
+          initialBinding: IntialBinding(),
           home: const SplashScreen(),
+          getPages: [
+            GetPage(
+                name: Routes.DASHBOARD, page: () => const DashboardScreen()),
+          ],
         );
       },
     );
   }
+}
+
+class Routes {
+  static const String DASHBOARD = '/dashboard';
 }

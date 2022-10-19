@@ -1,7 +1,8 @@
 import 'package:chat_app/core/models/intro_models.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:chat_app/ui/screens/number_screen/number_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widgets/intro_view.dart';
@@ -9,9 +10,9 @@ import '../../widgets/intro_view.dart';
 class IntroductionScreen extends StatelessWidget {
   IntroductionScreen({Key? key}) : super(key: key);
 
-  PageController pageController = PageController(initialPage: 0);
+  final PageController pageController = PageController(initialPage: 0);
 
-  List<IntroModel> introPageList = ([
+  final List<IntroModel> introPageList = ([
     IntroModel(
       'Number Verification',
       '',
@@ -50,7 +51,7 @@ class IntroductionScreen extends StatelessWidget {
             child: PageView(
               controller: pageController,
               pageSnapping: true,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               onPageChanged: (index) {
                 currentShowIndex = index;
               },
@@ -92,7 +93,9 @@ class IntroductionScreen extends StatelessWidget {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(const NumberScreen());
+                  },
                   borderRadius: BorderRadius.circular(24.r),
                   child: Center(
                     child: Text(
