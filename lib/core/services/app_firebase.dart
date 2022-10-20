@@ -49,31 +49,6 @@ class AppFirebase {
     return await ref.doc(userModel.uId).set(userModel.toJson());
   }
 
-  // Future<String> uploadUserImage(
-  //   String path,
-  //   String uId,
-  //   File file
-  // ) async {
-  //   FirebaseStorage storage = FirebaseStorage.instance;
-  //   Reference reference = storage.ref(uId).child(path);
-  //   UploadTask uploadTask = reference.putFile(file);
-  //   // Reference storage = FirebaseStorage.instance.ref(uId).child(path);
-  //   // print('pakistan $file');
-  //   // final task = await storage.putFile(file);
-  //   TaskSnapshot snapshot = uploadTask.snapshot;
-  //   String link = await snapshot.ref.getDownloadURL();
-  //   return link;
-  // }
-
-  // Future<String> uploadUserImage(String path, String uId, File file) async {
-  //   FirebaseStorage storage =  FirebaseStorage.instance;
-  //   Reference reference =  storage.ref(uId).child(path);
-  //   // Reference storage = FirebaseStorage.instance.ref(uId).child(path);
-  //   // UploadTask task = await storage.putFile(file);
-  //   TaskSnapshot snapshot = await reference.putFile(file);
-  //   String link = await snapshot.ref.getDownloadURL();
-  //   return link;
-  // }
   Future<String> uploadUserImage(String path, String uId, File file) async {
     final _firebaseStorage = FirebaseStorage.instance;
     print(file.path);

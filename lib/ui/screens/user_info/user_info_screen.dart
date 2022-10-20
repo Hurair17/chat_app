@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:chat_app/core/controllers/login_controller.dart';
+import 'package:chat_app/ui/screens/dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -83,7 +84,9 @@ class UserInfoScreen extends GetView<LoginController> {
                             Padding(
                               padding: const EdgeInsets.only(right: 8),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.to(const DashboardScreen());
+                                },
                                 child: const Text('Skip'),
                               ),
                             ),
